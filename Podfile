@@ -3,5 +3,6 @@ platform :ios, '8.0'
 target 'JDSearchView' do
 pod 'YYText'
 pod 'Masonry'
-pod ‘BGFMDB’, '~> 1.33’
+pod 'BGFMDB', '~> 1.33'
+pod 'MJExtension'
 end

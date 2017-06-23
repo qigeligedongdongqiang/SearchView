@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class InterestModel;
+
 @interface InterestTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) InterestModel *interestModel;
 
 @end

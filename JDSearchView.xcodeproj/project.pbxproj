@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		848650751EFCB9270011DA02 /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 848650741EFCB9270011DA02 /* SectionHeaderView.m */; };
+		848650771EFCB9D10011DA02 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848650761EFCB9D10011DA02 /* SectionHeaderView.xib */; };
+		8486507B1EFCEE000011DA02 /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 848650791EFCEE000011DA02 /* HistoryTableViewCell.m */; };
+		8486507C1EFCEE000011DA02 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8486507A1EFCEE000011DA02 /* HistoryTableViewCell.xib */; };
+		8486507F1EFCEFF00011DA02 /* SearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486507E1EFCEFF00011DA02 /* SearchModel.m */; };
+		848650811EFCF12D0011DA02 /* Interest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848650801EFCF12D0011DA02 /* Interest.plist */; };
+		848650841EFD01830011DA02 /* InterestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848650831EFD01830011DA02 /* InterestModel.m */; };
 		84A37B131EFB5D4700DB5074 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A37B121EFB5D4700DB5074 /* main.m */; };
 		84A37B161EFB5D4700DB5074 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A37B151EFB5D4700DB5074 /* AppDelegate.m */; };
 		84A37B191EFB5D4700DB5074 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A37B181EFB5D4700DB5074 /* ViewController.m */; };
@@ -21,6 +28,17 @@
 /* Begin PBXFileReference section */
 		1FA58BD7DAAE24CBA3B7187D /* Pods-JDSearchView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JDSearchView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JDSearchView/Pods-JDSearchView.debug.xcconfig"; sourceTree = "<group>"; };
 		446935817127B51CB398C6B5 /* Pods-JDSearchView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JDSearchView.release.xcconfig"; path = "Pods/Target Support Files/Pods-JDSearchView/Pods-JDSearchView.release.xcconfig"; sourceTree = "<group>"; };
+		848650731EFCB9270011DA02 /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
+		848650741EFCB9270011DA02 /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
+		848650761EFCB9D10011DA02 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
+		848650781EFCEE000011DA02 /* HistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewCell.h; sourceTree = "<group>"; };
+		848650791EFCEE000011DA02 /* HistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewCell.m; sourceTree = "<group>"; };
+		8486507A1EFCEE000011DA02 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
+		8486507D1EFCEFF00011DA02 /* SearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchModel.h; sourceTree = "<group>"; };
+		8486507E1EFCEFF00011DA02 /* SearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchModel.m; sourceTree = "<group>"; };
+		848650801EFCF12D0011DA02 /* Interest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Interest.plist; sourceTree = "<group>"; };
+		848650821EFD01830011DA02 /* InterestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestModel.h; sourceTree = "<group>"; };
+		848650831EFD01830011DA02 /* InterestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestModel.m; sourceTree = "<group>"; };
 		84A37B0E1EFB5D4700DB5074 /* JDSearchView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDSearchView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A37B121EFB5D4700DB5074 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84A37B141EFB5D4700DB5074 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -84,6 +102,7 @@
 				84A37B151EFB5D4700DB5074 /* AppDelegate.m */,
 				84A37B171EFB5D4700DB5074 /* ViewController.h */,
 				84A37B181EFB5D4700DB5074 /* ViewController.m */,
+				848650801EFCF12D0011DA02 /* Interest.plist */,
 				84A37B341EFB90B300DB5074 /* SearchView */,
 				84A37B1D1EFB5D4700DB5074 /* Assets.xcassets */,
 				84A37B1F1EFB5D4700DB5074 /* LaunchScreen.storyboard */,
@@ -125,8 +144,14 @@
 			children = (
 				84A37B381EFB9E0A00DB5074 /* JDSearchBar.h */,
 				84A37B391EFB9E0A00DB5074 /* JDSearchBar.m */,
+				848650731EFCB9270011DA02 /* SectionHeaderView.h */,
+				848650741EFCB9270011DA02 /* SectionHeaderView.m */,
+				848650761EFCB9D10011DA02 /* SectionHeaderView.xib */,
 				84A37B351EFB911F00DB5074 /* InterestTableViewCell.h */,
 				84A37B361EFB911F00DB5074 /* InterestTableViewCell.m */,
+				848650781EFCEE000011DA02 /* HistoryTableViewCell.h */,
+				848650791EFCEE000011DA02 /* HistoryTableViewCell.m */,
+				8486507A1EFCEE000011DA02 /* HistoryTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -134,6 +159,10 @@
 		84A37B3D1EFBBAEB00DB5074 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				848650821EFD01830011DA02 /* InterestModel.h */,
+				848650831EFD01830011DA02 /* InterestModel.m */,
+				8486507D1EFCEFF00011DA02 /* SearchModel.h */,
+				8486507E1EFCEFF00011DA02 /* SearchModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -181,8 +210,8 @@
 				TargetAttributes = {
 					84A37B0D1EFB5D4700DB5074 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9ECU3KC8L7;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = HCWL597HJ7;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -210,6 +239,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84A37B211EFB5D4700DB5074 /* LaunchScreen.storyboard in Resources */,
+				848650771EFCB9D10011DA02 /* SectionHeaderView.xib in Resources */,
+				8486507C1EFCEE000011DA02 /* HistoryTableViewCell.xib in Resources */,
+				848650811EFCF12D0011DA02 /* Interest.plist in Resources */,
 				84A37B1E1EFB5D4700DB5074 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,10 +302,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				84A37B191EFB5D4700DB5074 /* ViewController.m in Sources */,
+				848650841EFD01830011DA02 /* InterestModel.m in Sources */,
 				84A37B3A1EFB9E0A00DB5074 /* JDSearchBar.m in Sources */,
 				84A37B161EFB5D4700DB5074 /* AppDelegate.m in Sources */,
 				84A37B331EFB703B00DB5074 /* JDSearchViewController.m in Sources */,
 				84A37B131EFB5D4700DB5074 /* main.m in Sources */,
+				8486507F1EFCEFF00011DA02 /* SearchModel.m in Sources */,
+				848650751EFCB9270011DA02 /* SectionHeaderView.m in Sources */,
+				8486507B1EFCEE000011DA02 /* HistoryTableViewCell.m in Sources */,
 				84A37B371EFB911F00DB5074 /* InterestTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,11 +421,13 @@
 			baseConfigurationReference = 1FA58BD7DAAE24CBA3B7187D /* Pods-JDSearchView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9ECU3KC8L7;
+				DEVELOPMENT_TEAM = HCWL597HJ7;
 				INFOPLIST_FILE = JDSearchView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = self.JDSearchView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.niangaomama.searchview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5947dca5-c445-4f83-a158-b71dac7daa52";
+				PROVISIONING_PROFILE_SPECIFIER = developUse_dev_pp;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Debug;
@@ -399,11 +437,12 @@
 			baseConfigurationReference = 446935817127B51CB398C6B5 /* Pods-JDSearchView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9ECU3KC8L7;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = JDSearchView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = self.JDSearchView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.niangaomama.searchview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Release;

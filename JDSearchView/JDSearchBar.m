@@ -111,4 +111,10 @@ static CGFloat const cancelBtnW = 30;
     return YES;
 }
 
+#pragma mark - setter
+- (void)setPlaceholder:(NSString *)placeholder {
+    _placeholder = placeholder;
+    self.textField.placeholder = placeholder;
+}
+
 @end

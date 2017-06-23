@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B3DE0BFED9ED108BC042B25F6092A3C0'
+               BlueprintIdentifier = 'EC271B0A8265DAA7016AE0E1DFE74FD6'
                BlueprintName = 'Pods-JDSearchView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-JDSearchView.a'>

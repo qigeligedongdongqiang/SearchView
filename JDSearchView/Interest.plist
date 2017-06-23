@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>hotSearch</key>
+	<string>kindle电子书</string>
+	<key>subCount</key>
+	<integer>6</integer>
+	<key>searchModels</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>kindle电子书</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>强生隐形</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>算法逻辑</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>客户端架构</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>宝宝辅食</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>horien</string>
+		</dict>
+	</array>
+</dict>
+</plist>

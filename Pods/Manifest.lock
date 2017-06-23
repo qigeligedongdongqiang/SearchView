@@ -1,18 +1,21 @@
 PODS:
   - BGFMDB (1.33)
   - Masonry (1.0.2)
+  - MJExtension (3.0.13)
   - YYText (1.0.7)
 
 DEPENDENCIES:
   - BGFMDB (~> 1.33)
   - Masonry
+  - MJExtension
   - YYText
 
 SPEC CHECKSUMS:
   BGFMDB: f1d078f2a5f5d6e41d351391acae30eadaaad565
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: d3bd9ecb0c2a129f3c3f5f331f22aab5f86a9294
+PODFILE CHECKSUM: 45e7c669b3957647f6e840d6fb0cb81a5dbd9387
 
 COCOAPODS: 1.2.1
