@@ -7,7 +7,14 @@
 //
 
 #import "InterestModel.h"
+#import "MJExtension.h"
 
 @implementation InterestModel
+
++ (NSDictionary *)mj_objectClassInArray {
+    return @{
+             @"searchModels" : @"SearchModel"
+             };
+}
 
 @end

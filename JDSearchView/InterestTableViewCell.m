@@ -32,19 +32,30 @@
 
 - (void)setUpSubviewsWithModel:(InterestModel *)model {
     NSArray *searchModels = model.searchModels;
-    for (SearchModel *searchModel in searchModels) {
+    CGFloat margin = 5;
+    CGRect previousFrame = CGRectMake(12, 0, 0, 44);
+    for (NSInteger i = 0; i < searchModels.count; i++) {
+        SearchModel *searchModel = searchModels[i];
         NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:searchModel.name];
         text.yy_font = [UIFont boldSystemFontOfSize:14];
         text.yy_color = [UIColor blueColor];
         [text yy_setColor:[UIColor lightGrayColor] range:NSMakeRange(0, searchModel.name.length)];
         YYLabel *label = [YYLabel new];
-//        label.frame = 
+        CGSize textSize = [searchModel.name boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 44) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size;
+        if (CGRectGetMaxX(previousFrame) + textSize.width +12 < self.contentView.bounds.size.width) {
+            label.frame = CGRectMake(CGRectGetMaxX(previousFrame) + margin, previousFrame.origin.y, textSize.width, 44);
+            previousFrame = label.frame;
+        } else {
+            label.frame = CGRectMake(12, CGRectGetMaxY(previousFrame) + margin, textSize.width, 44);
+            previousFrame = label.frame;
+        }
         label.attributedText = text;
         label.highlightTapAction = ^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
             
         };
         [self.contentView addSubview:label];
     }
+    
 }
 
 @end

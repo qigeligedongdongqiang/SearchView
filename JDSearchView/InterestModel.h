@@ -10,10 +10,7 @@
 
 @interface InterestModel : NSObject
 
-@property (nonatomic, assign) NSInteger subCount;
 @property (nonatomic, copy) NSString *hotSearch;
 @property (nonatomic, strong) NSArray *searchModels;
-
-@property (nonatomic, assign) CGFloat cellHeight;
 
 @end
