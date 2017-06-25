@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) InterestModel *interestModel;
 
++ (CGFloat)cellHeightWithModel:(InterestModel *)model;
+
 @end

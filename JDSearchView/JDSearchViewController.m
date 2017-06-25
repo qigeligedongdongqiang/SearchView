@@ -107,7 +107,7 @@
 #pragma mark - tableView delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 100;
+        return [InterestTableViewCell cellHeightWithModel:self.interestModel];
     } else {
         return 44;
     }
@@ -129,20 +129,65 @@
         [sectionHeaderView.accessoryBtn setImage:[[UIImage imageNamed:@"delete"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         __weak typeof(self) weakSelf = self;
         sectionHeaderView.accessAction = ^{
-            [weakSelf deleteHistory];
+            [weakSelf deleteAllHistory];
         };
     }
     
     return sectionHeaderView;
 }
 
-#pragma mark - actions
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1) {
+        if (indexPath.row<self.historyArr.count) {
+            [self deleteHistoryWithIndex:indexPath.row];
+        }
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1) {
+        if (indexPath.row < self.historyArr) {
+            [self searchWithModel:self.historyArr[indexPath.row]];
+        }
+    }
+}
+
+#pragma mark - tableView delegate
+- (void)searchBarDidClickMore:(JDSearchBar *)searchBar {
+    
+}
+
 - (void)searchBarDidClickCancel:(JDSearchBar *)searchBar {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)deleteHistory {
+- (void)searchBar:(JDSearchBar *)searchBar textFieldDidChange:(UITextField *)textField {
+    
+}
+
+- (void)searchBar:(JDSearchBar *)searchBar textFieldWillSearch:(UITextField *)textField {
+    
+}
+
+#pragma mark - actions
+- (void)searchWithText:(SearchModel *)model {
+    
+}
+
+- (void)deleteAllHistory {
     [self.historyArr removeAllObjects];
+    [self.tableView reloadData];
+}
+
+- (void)deleteHistoryWithIndex:(NSInteger)index {
+    [self.historyArr removeObjectAtIndex:index];
     [self.tableView reloadData];
 }
 

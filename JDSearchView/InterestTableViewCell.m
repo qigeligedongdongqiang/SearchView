@@ -11,7 +11,21 @@
 #import "SearchModel.h"
 #import "YYText.h"
 
+static CGFloat const labelH = 30;
+static CGFloat const fontSize = 14;
+static CGFloat const adjustW = 14;
+static CGFloat const margin = 10;
+
+static NSArray *subFrames;
+
 @implementation InterestTableViewCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return self;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -32,30 +46,50 @@
 
 - (void)setUpSubviewsWithModel:(InterestModel *)model {
     NSArray *searchModels = model.searchModels;
-    CGFloat margin = 5;
-    CGRect previousFrame = CGRectMake(12, 0, 0, 44);
     for (NSInteger i = 0; i < searchModels.count; i++) {
         SearchModel *searchModel = searchModels[i];
+        YYLabel *label = [[YYLabel alloc] init];
+        
+        //设置标签frame
+        NSValue *value = subFrames[i];
+        label.frame = [value CGRectValue];
+        
+        //设置标签样式
         NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:searchModel.name];
-        text.yy_font = [UIFont boldSystemFontOfSize:14];
-        text.yy_color = [UIColor blueColor];
-        [text yy_setColor:[UIColor lightGrayColor] range:NSMakeRange(0, searchModel.name.length)];
-        YYLabel *label = [YYLabel new];
-        CGSize textSize = [searchModel.name boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 44) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size;
-        if (CGRectGetMaxX(previousFrame) + textSize.width +12 < self.contentView.bounds.size.width) {
-            label.frame = CGRectMake(CGRectGetMaxX(previousFrame) + margin, previousFrame.origin.y, textSize.width, 44);
-            previousFrame = label.frame;
-        } else {
-            label.frame = CGRectMake(12, CGRectGetMaxY(previousFrame) + margin, textSize.width, 44);
-            previousFrame = label.frame;
-        }
+        text.yy_alignment = NSTextAlignmentCenter;
+        text.yy_font = [UIFont systemFontOfSize:fontSize];
+        text.yy_color = [UIColor colorWithRed:122/255.0 green:122/255.0 blue:122/255.0 alpha:1];
+        YYTextBorder *border = [YYTextBorder borderWithFillColor:[UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1] cornerRadius:labelH/2];
+        CGSize textSize = [searchModel.name boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, labelH) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:fontSize]} context:nil].size;
+        border.insets = UIEdgeInsetsMake(-(labelH - textSize.height)/2, -adjustW/2, -(labelH - textSize.height)/2, -adjustW/2);
+        text.yy_textBackgroundBorder = border;
         label.attributedText = text;
         label.highlightTapAction = ^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
-            
+            NSLog(@"lalala");
         };
         [self.contentView addSubview:label];
     }
-    
+}
+
++ (CGFloat)cellHeightWithModel:(InterestModel *)model {
+    NSArray *searchModels = model.searchModels;
+    CGRect previousFrame = CGRectMake(12-margin, margin, 0, labelH);
+    CGRect newFrame = CGRectZero;
+    NSMutableArray *frames = [NSMutableArray array];
+    for (NSInteger i = 0; i < searchModels.count; i++) {
+        SearchModel *searchModel = searchModels[i];
+        CGSize textSize = [searchModel.name boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, labelH) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:fontSize]} context:nil].size;
+        if (CGRectGetMaxX(previousFrame) + textSize.width + adjustW +12 < [UIScreen mainScreen].bounds.size.width) {
+            newFrame = CGRectMake(CGRectGetMaxX(previousFrame) + margin, previousFrame.origin.y, textSize.width + adjustW, labelH);
+            previousFrame = newFrame;
+        } else {
+            newFrame = CGRectMake(12, CGRectGetMaxY(previousFrame) + margin, textSize.width + adjustW, labelH);
+            previousFrame = newFrame;
+        }
+        [frames addObject:[NSValue valueWithCGRect:newFrame]];
+    }
+    subFrames = frames;
+    return CGRectGetMaxY(newFrame) + margin;
 }
 
 @end
