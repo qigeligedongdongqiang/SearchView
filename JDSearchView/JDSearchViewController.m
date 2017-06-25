@@ -60,7 +60,7 @@
     self.interestModel = [InterestModel mj_objectWithKeyValues:dataDict];
     
     if (self.interestModel.hotSearch) {
-        self.searchBar.placeholder = self.interestModel.hotSearch; 
+        self.searchBar.placeholder = self.interestModel.hotSearch;
     }
 }
 
