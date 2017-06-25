@@ -186,6 +186,15 @@ NSString *const BeginSearchKey = @"SearchViewBeginSearch";
     } else if (textField.placeholder) {
         searchText = textField.placeholder;
     }
+    
+    SearchModel *model = [[SearchModel alloc] init];
+    model.name = searchText;
+    NSArray *result = [SearchModel findFormatSqlConditions:@"where %@ = %@",sqlKey(@"name"), sqlValue(model.name)];
+    BOOL isExist = result.count > 0;
+    if (!isExist) {
+        [model save];
+    }
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:BeginSearchKey object:nil userInfo:@{@"searchText" : searchText}];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -197,7 +206,7 @@ NSString *const BeginSearchKey = @"SearchViewBeginSearch";
 }
 
 - (void)searchWithModel:(SearchModel *)model {
-    NSArray *result = [SearchModel findFormatSqlConditions:@"where name = %@",sqlValue(model.name)];
+    NSArray *result = [SearchModel findFormatSqlConditions:@"where %@ = %@",sqlKey(@"name"), sqlValue(model.name)];
     BOOL isExist = result.count > 0;
     if (!isExist) {
         [model save];
@@ -212,6 +221,7 @@ NSString *const BeginSearchKey = @"SearchViewBeginSearch";
 }
 
 - (void)deleteHistoryWithIndex:(NSInteger)index {
+    [SearchModel deleteFormatSqlConditions:@"where %@ = %@",sqlKey(@"name"), sqlValue([self.historyArr[index] name])];
     [self.historyArr removeObjectAtIndex:index];
     [self.tableView reloadData];
 }
