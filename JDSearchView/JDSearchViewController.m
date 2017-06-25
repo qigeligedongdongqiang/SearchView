@@ -17,6 +17,8 @@
 #import "InterestModel.h"
 #import "SearchModel.h"
 
+NSString *const BeginSearchKey = @"SearchViewBeginSearch";
+
 @interface JDSearchViewController ()<UITableViewDataSource,UITableViewDelegate,JDSearchBarDelegate>
 
 @property (nonatomic, strong) JDSearchBar *searchBar;
@@ -65,9 +67,7 @@
 }
 
 - (void)loadHistoryData {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Interest" ofType:@"plist"];
-    NSDictionary *dataDict = [NSDictionary dictionaryWithContentsOfFile:path];
-    self.historyArr = [SearchModel mj_objectArrayWithKeyValuesArray:dataDict[@"searchModels"]];
+    self.historyArr = [SearchModel findAll].mutableCopy;
 }
 
 #pragma mark - tableView dataSource
@@ -93,6 +93,13 @@
     if (indexPath.section == 0) {
         InterestTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([InterestTableViewCell class])];
         cell.interestModel = self.interestModel;
+        __weak typeof(self) weakSelf = self;
+        cell.selectAction = ^(NSInteger index) {
+            __strong typeof(self) strongSelf = weakSelf;
+            if (index < strongSelf.interestModel.searchModels.count) {
+                [strongSelf searchWithModel:strongSelf.interestModel.searchModels[index]];
+            }
+        };
         return cell;
     } else if (indexPath.section == 1) {
         HistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HistoryTableViewCell class])];
@@ -153,13 +160,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
-        if (indexPath.row < self.historyArr) {
+        if (indexPath.row < self.historyArr.count) {
             [self searchWithModel:self.historyArr[indexPath.row]];
         }
     }
 }
 
-#pragma mark - tableView delegate
+#pragma mark - searchBar delegate
 - (void)searchBarDidClickMore:(JDSearchBar *)searchBar {
     
 }
@@ -173,15 +180,33 @@
 }
 
 - (void)searchBar:(JDSearchBar *)searchBar textFieldWillSearch:(UITextField *)textField {
-    
+    NSString *searchText;
+    if (![textField.text isEqualToString:@""]) {
+        searchText = textField.text;
+    } else if (textField.placeholder) {
+        searchText = textField.placeholder;
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:BeginSearchKey object:nil userInfo:@{@"searchText" : searchText}];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - actions
-- (void)searchWithText:(SearchModel *)model {
-    
+- (void)searchWithText:(NSString *)text {
+    [[NSNotificationCenter defaultCenter] postNotificationName:BeginSearchKey object:nil userInfo:@{@"searchText" : text}];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)searchWithModel:(SearchModel *)model {
+    NSArray *result = [SearchModel findFormatSqlConditions:@"where name = %@",sqlValue(model.name)];
+    BOOL isExist = result.count > 0;
+    if (!isExist) {
+        [model save];
+    }
+    [self searchWithText:model.name];
 }
 
 - (void)deleteAllHistory {
+    [SearchModel clear];
     [self.historyArr removeAllObjects];
     [self.tableView reloadData];
 }

@@ -10,9 +10,12 @@
 
 @class InterestModel;
 
+typedef void(^LabelSelectBlock)(NSInteger index);
+
 @interface InterestTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) InterestModel *interestModel;
+@property (nonatomic, copy) LabelSelectBlock selectAction;
 
 + (CGFloat)cellHeightWithModel:(InterestModel *)model;
 

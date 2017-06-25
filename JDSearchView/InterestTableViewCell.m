@@ -59,15 +59,26 @@ static NSArray *subFrames;
         text.yy_alignment = NSTextAlignmentCenter;
         text.yy_font = [UIFont systemFontOfSize:fontSize];
         text.yy_color = [UIColor colorWithRed:122/255.0 green:122/255.0 blue:122/255.0 alpha:1];
+        //设置背景框
         YYTextBorder *border = [YYTextBorder borderWithFillColor:[UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1] cornerRadius:labelH/2];
         CGSize textSize = [searchModel.name boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, labelH) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:fontSize]} context:nil].size;
         border.insets = UIEdgeInsetsMake(-(labelH - textSize.height)/2, -adjustW/2, -(labelH - textSize.height)/2, -adjustW/2);
         text.yy_textBackgroundBorder = border;
-        label.attributedText = text;
-        label.highlightTapAction = ^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
-            NSLog(@"lalala");
+        //交互事件
+        YYTextHighlight *highlight = [YYTextHighlight new];
+        __weak typeof(self) weakSelf = self;
+        highlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
+            [weakSelf selectLabelWithIndex:i];
         };
+        [text yy_setTextHighlight:highlight range:NSMakeRange(0, text.length)];
+        label.attributedText = text;
         [self.contentView addSubview:label];
+    }
+}
+
+- (void)selectLabelWithIndex:(NSInteger)index {
+    if (self.selectAction) {
+        self.selectAction(index);
     }
 }
 

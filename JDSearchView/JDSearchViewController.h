@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+UIKIT_EXTERN NSString *const BeginSearchKey;
+
 @interface JDSearchViewController : UIViewController
 
 @end

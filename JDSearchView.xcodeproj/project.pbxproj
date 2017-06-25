@@ -22,6 +22,7 @@
 		84A37B331EFB703B00DB5074 /* JDSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A37B321EFB703B00DB5074 /* JDSearchViewController.m */; };
 		84A37B371EFB911F00DB5074 /* InterestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A37B361EFB911F00DB5074 /* InterestTableViewCell.m */; };
 		84A37B3A1EFB9E0A00DB5074 /* JDSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A37B391EFB9E0A00DB5074 /* JDSearchBar.m */; };
+		D2768B641EFFAD7200F0A504 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2768B631EFFAD7200F0A504 /* SearchResultViewController.m */; };
 		E33D21FE5CC00FE1CBF5519E /* libPods-JDSearchView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2915EB45D9075B311B5F13 /* libPods-JDSearchView.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,8 @@
 		84A37B361EFB911F00DB5074 /* InterestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestTableViewCell.m; sourceTree = "<group>"; };
 		84A37B381EFB9E0A00DB5074 /* JDSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDSearchBar.h; sourceTree = "<group>"; };
 		84A37B391EFB9E0A00DB5074 /* JDSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDSearchBar.m; sourceTree = "<group>"; };
+		D2768B621EFFAD7200F0A504 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
+		D2768B631EFFAD7200F0A504 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 		FB2915EB45D9075B311B5F13 /* libPods-JDSearchView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JDSearchView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -102,6 +105,8 @@
 				84A37B151EFB5D4700DB5074 /* AppDelegate.m */,
 				84A37B171EFB5D4700DB5074 /* ViewController.h */,
 				84A37B181EFB5D4700DB5074 /* ViewController.m */,
+				D2768B621EFFAD7200F0A504 /* SearchResultViewController.h */,
+				D2768B631EFFAD7200F0A504 /* SearchResultViewController.m */,
 				848650801EFCF12D0011DA02 /* Interest.plist */,
 				84A37B341EFB90B300DB5074 /* SearchView */,
 				84A37B1D1EFB5D4700DB5074 /* Assets.xcassets */,
@@ -303,6 +308,7 @@
 			files = (
 				84A37B191EFB5D4700DB5074 /* ViewController.m in Sources */,
 				848650841EFD01830011DA02 /* InterestModel.m in Sources */,
+				D2768B641EFFAD7200F0A504 /* SearchResultViewController.m in Sources */,
 				84A37B3A1EFB9E0A00DB5074 /* JDSearchBar.m in Sources */,
 				84A37B161EFB5D4700DB5074 /* AppDelegate.m in Sources */,
 				84A37B331EFB703B00DB5074 /* JDSearchViewController.m in Sources */,

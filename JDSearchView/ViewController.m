@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "JDSearchViewController.h"
+#import "SearchResultViewController.h"
 
 @interface ViewController ()
 
@@ -30,10 +31,17 @@
     [searchBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [searchBtn addTarget:self action:@selector(searchBtnClick) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchBtn];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beginSearch:) name:BeginSearchKey object:nil];
 }
 
 - (void)searchBtnClick {
     [self presentViewController:[JDSearchViewController new] animated:NO completion:nil];
+}
+
+- (void)beginSearch:(NSNotification *)noti {
+//    NSLog(@"%@",noti.userInfo);
+    [self.navigationController pushViewController:[[SearchResultViewController alloc] initWithSearchText:noti.userInfo[@"searchText"]] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,5 +49,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end
