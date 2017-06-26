@@ -8,6 +8,7 @@
 
 #import "JDSearchViewController.h"
 #import "PopOverViewController.h"
+#import "ResultPreView.h"
 
 #import "JDSearchBar.h"
 #import "SectionHeaderView.h"
@@ -26,6 +27,8 @@ NSString *const BeginSearchKey = @"SearchViewBeginSearch";
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, copy) NSString *serchType;
+
+@property (nonatomic, strong) ResultPreView *preView;
 
 @property (nonatomic, strong) InterestModel *interestModel;
 @property (nonatomic, strong) NSMutableArray *historyArr;
@@ -182,7 +185,21 @@ NSString *const BeginSearchKey = @"SearchViewBeginSearch";
 }
 
 - (void)searchBar:(JDSearchBar *)searchBar textFieldDidChange:(UITextField *)textField {
-    
+    if (textField.text.length > 0) {
+        [self.view addSubview:self.preView];
+        self.preView.searchText = textField.text;
+        __weak typeof(self) weakSelf = self;
+        self.preView.upToAction = ^(NSString *text){
+            weakSelf.searchBar.textField.text = text;
+        };
+        self.preView.selectAction = ^(NSString *text) {
+            SearchModel *model = [[SearchModel alloc] init];
+            model.name = text;
+            [weakSelf searchWithModel:model];
+        };
+    } else {
+        [self.preView removeFromSuperview];
+    }
 }
 
 - (void)searchBar:(JDSearchBar *)searchBar textFieldWillSearch:(UITextField *)textField {
@@ -258,6 +275,13 @@ NSString *const BeginSearchKey = @"SearchViewBeginSearch";
         _searchBar.delegate = self;
     }
     return _searchBar;
+}
+
+- (ResultPreView *)preView {
+    if (!_preView) {
+        _preView = [[ResultPreView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64)];
+    }
+    return _preView;
 }
 
 /*

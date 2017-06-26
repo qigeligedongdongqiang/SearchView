@@ -24,8 +24,9 @@
 @interface JDSearchBar : UIView
 
 @property (nonatomic, assign, getter=isShowKeyBoardWhenEnter) BOOL showKeyBoardWhenEnter;
-@property (nonatomic, copy) NSString *placeholder;
 @property (nonatomic, strong) UIButton *moreBtn;
+@property (nonatomic, strong) UITextField *textField;
+@property (nonatomic, copy) NSString *placeholder;
 @property (nonatomic, weak) id<JDSearchBarDelegate> delegate;
 
 @end

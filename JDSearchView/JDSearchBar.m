@@ -10,8 +10,6 @@
 
 @interface JDSearchBar ()<UITextFieldDelegate>
 
-@property (nonatomic, strong) UITextField *textField;
-
 @end
 
 static CGFloat const paddingLR = 12;
@@ -71,6 +69,7 @@ static CGFloat const cancelBtnW = 30;
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     textField.returnKeyType = UIReturnKeySearch;
     textField.placeholder = self.placeholder;
+    [textField addTarget:self action:@selector(textChange:) forControlEvents:UIControlEventEditingChanged];
     self.textField = textField;
     [contentView addSubview:textField];
 }
@@ -97,14 +96,13 @@ static CGFloat const cancelBtnW = 30;
     }
 }
 
-#pragma mark - uitextfield delegate
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+- (void)textChange:(UITextField *)textField {
     if ([self.delegate respondsToSelector:@selector(searchBar:textFieldDidChange:)]) {
         [self.delegate searchBar:self textFieldDidChange:textField];
     }
-    return YES;
 }
 
+#pragma mark - uitextfield delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     if ([self.delegate respondsToSelector:@selector(searchBar:textFieldWillSearch:)]) {
         [self.delegate searchBar:self textFieldWillSearch:textField];

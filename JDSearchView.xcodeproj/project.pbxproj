@@ -23,6 +23,9 @@
 		84A37B371EFB911F00DB5074 /* InterestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A37B361EFB911F00DB5074 /* InterestTableViewCell.m */; };
 		84A37B3A1EFB9E0A00DB5074 /* JDSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A37B391EFB9E0A00DB5074 /* JDSearchBar.m */; };
 		84E7AEE41F00A36F0018F8B5 /* PopOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7AEE31F00A36F0018F8B5 /* PopOverViewController.m */; };
+		84E7AEEA1F00E0840018F8B5 /* ResultPreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7AEE91F00E0840018F8B5 /* ResultPreView.m */; };
+		84E7AEEE1F00E25C0018F8B5 /* PreviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7AEEC1F00E25C0018F8B5 /* PreviewTableViewCell.m */; };
+		84E7AEEF1F00E25C0018F8B5 /* PreviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E7AEED1F00E25C0018F8B5 /* PreviewTableViewCell.xib */; };
 		D2768B641EFFAD7200F0A504 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2768B631EFFAD7200F0A504 /* SearchResultViewController.m */; };
 		E33D21FE5CC00FE1CBF5519E /* libPods-JDSearchView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2915EB45D9075B311B5F13 /* libPods-JDSearchView.a */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,11 @@
 		84A37B391EFB9E0A00DB5074 /* JDSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDSearchBar.m; sourceTree = "<group>"; };
 		84E7AEE21F00A36F0018F8B5 /* PopOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopOverViewController.h; sourceTree = "<group>"; };
 		84E7AEE31F00A36F0018F8B5 /* PopOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopOverViewController.m; sourceTree = "<group>"; };
+		84E7AEE81F00E0840018F8B5 /* ResultPreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultPreView.h; sourceTree = "<group>"; };
+		84E7AEE91F00E0840018F8B5 /* ResultPreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultPreView.m; sourceTree = "<group>"; };
+		84E7AEEB1F00E25C0018F8B5 /* PreviewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewTableViewCell.h; sourceTree = "<group>"; };
+		84E7AEEC1F00E25C0018F8B5 /* PreviewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewTableViewCell.m; sourceTree = "<group>"; };
+		84E7AEED1F00E25C0018F8B5 /* PreviewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewTableViewCell.xib; sourceTree = "<group>"; };
 		D2768B621EFFAD7200F0A504 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
 		D2768B631EFFAD7200F0A504 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 		FB2915EB45D9075B311B5F13 /* libPods-JDSearchView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JDSearchView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +170,11 @@
 				848650781EFCEE000011DA02 /* HistoryTableViewCell.h */,
 				848650791EFCEE000011DA02 /* HistoryTableViewCell.m */,
 				8486507A1EFCEE000011DA02 /* HistoryTableViewCell.xib */,
+				84E7AEE81F00E0840018F8B5 /* ResultPreView.h */,
+				84E7AEE91F00E0840018F8B5 /* ResultPreView.m */,
+				84E7AEEB1F00E25C0018F8B5 /* PreviewTableViewCell.h */,
+				84E7AEEC1F00E25C0018F8B5 /* PreviewTableViewCell.m */,
+				84E7AEED1F00E25C0018F8B5 /* PreviewTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -248,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84E7AEEF1F00E25C0018F8B5 /* PreviewTableViewCell.xib in Resources */,
 				84A37B211EFB5D4700DB5074 /* LaunchScreen.storyboard in Resources */,
 				848650771EFCB9D10011DA02 /* SectionHeaderView.xib in Resources */,
 				8486507C1EFCEE000011DA02 /* HistoryTableViewCell.xib in Resources */,
@@ -321,6 +335,8 @@
 				84A37B131EFB5D4700DB5074 /* main.m in Sources */,
 				8486507F1EFCEFF00011DA02 /* SearchModel.m in Sources */,
 				848650751EFCB9270011DA02 /* SectionHeaderView.m in Sources */,
+				84E7AEEE1F00E25C0018F8B5 /* PreviewTableViewCell.m in Sources */,
+				84E7AEEA1F00E0840018F8B5 /* ResultPreView.m in Sources */,
 				8486507B1EFCEE000011DA02 /* HistoryTableViewCell.m in Sources */,
 				84A37B371EFB911F00DB5074 /* InterestTableViewCell.m in Sources */,
 			);
