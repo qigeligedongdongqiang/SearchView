@@ -7,6 +7,7 @@
 //
 
 #import "JDSearchViewController.h"
+#import "PopOverViewController.h"
 
 #import "JDSearchBar.h"
 #import "SectionHeaderView.h"
@@ -19,10 +20,12 @@
 
 NSString *const BeginSearchKey = @"SearchViewBeginSearch";
 
-@interface JDSearchViewController ()<UITableViewDataSource,UITableViewDelegate,JDSearchBarDelegate>
+@interface JDSearchViewController ()<UITableViewDataSource,UITableViewDelegate,JDSearchBarDelegate,PopOverViewControllerDelegate>
 
 @property (nonatomic, strong) JDSearchBar *searchBar;
 @property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, copy) NSString *serchType;
 
 @property (nonatomic, strong) InterestModel *interestModel;
 @property (nonatomic, strong) NSMutableArray *historyArr;
@@ -38,6 +41,7 @@ NSString *const BeginSearchKey = @"SearchViewBeginSearch";
     
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.searchBar];
+    self.serchType = self.searchBar.moreBtn.titleLabel.text;
     
     [self registerCell];
 }
@@ -168,7 +172,9 @@ NSString *const BeginSearchKey = @"SearchViewBeginSearch";
 
 #pragma mark - searchBar delegate
 - (void)searchBarDidClickMore:(JDSearchBar *)searchBar {
-    
+    PopOverViewController *popVC = [[PopOverViewController alloc] initWithSourceView:searchBar.moreBtn];
+    popVC.delegate = self;
+    [self presentViewController:popVC animated:YES completion:nil];
 }
 
 - (void)searchBarDidClickCancel:(JDSearchBar *)searchBar {
@@ -195,13 +201,19 @@ NSString *const BeginSearchKey = @"SearchViewBeginSearch";
         [model save];
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:BeginSearchKey object:nil userInfo:@{@"searchText" : searchText}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BeginSearchKey object:nil userInfo:@{@"searchType" : self.serchType,@"searchText" : searchText}];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - popView delegate
+- (void)popView:(PopOverViewController *)popView didSelectTitle:(NSString *)title {
+    [self.searchBar.moreBtn setTitle:title forState:UIControlStateNormal];
+    self.serchType = title;
 }
 
 #pragma mark - actions
 - (void)searchWithText:(NSString *)text {
-    [[NSNotificationCenter defaultCenter] postNotificationName:BeginSearchKey object:nil userInfo:@{@"searchText" : text}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BeginSearchKey object:nil userInfo:@{@"searchType" : self.serchType,@"searchText" : text}];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

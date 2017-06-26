@@ -41,7 +41,8 @@
 
 - (void)beginSearch:(NSNotification *)noti {
 //    NSLog(@"%@",noti.userInfo);
-    [self.navigationController pushViewController:[[SearchResultViewController alloc] initWithSearchText:noti.userInfo[@"searchText"]] animated:YES];
+    NSString *searchText = [NSString stringWithFormat:@"%@,%@",noti.userInfo[@"searchType"],noti.userInfo[@"searchText"]];
+    [self.navigationController pushViewController:[[SearchResultViewController alloc] initWithSearchText:searchText] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

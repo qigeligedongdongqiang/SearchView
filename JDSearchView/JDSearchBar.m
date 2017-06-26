@@ -63,6 +63,7 @@ static CGFloat const cancelBtnW = 30;
     [moreBtn setImageEdgeInsets:UIEdgeInsetsMake(0, moreBtn.titleLabel.bounds.size.width, 0, -moreBtn.titleLabel.bounds.size.width)];
     [moreBtn addTarget:self action:@selector(moreBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [contentView addSubview:moreBtn];
+    self.moreBtn = moreBtn;
     
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(paddingLR + moreBtn.bounds.size.width + marginCenter, 0, contentView.bounds.size.width - paddingLR - moreBtn.bounds.size.width - marginCenter, contentView.bounds.size.height)];
     textField.delegate = self;
